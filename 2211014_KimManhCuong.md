@@ -53,7 +53,7 @@ python sqlmap.py -u "http://localhost:8025/sqli_2.php?movie=4" -D bWAPP -T users
 
 - The output is:
 
-![iep](iep.png)
+![iep](imgs/iep.png)
 
 - I will copy 2 hashed password inside the csv file of sqlmap to a txt file. Then use John the Ripper to crack them.
 
